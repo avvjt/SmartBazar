@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "972888386915",
+    "project_id": "smart-bazar-3f50a",
+    "storage_bucket": "smart-bazar-3f50a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972888386915:android:3083cef6b3a9821ad33756",
+        "android_client_info": {
+          "package_name": "com.bazaar.smartbazar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972888386915-ubeqlg3sshg8sjtkrrge889o15fkmtik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjRVXc-MH7VQrRZaxaXJI-_Z17HUaIjvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972888386915-ubeqlg3sshg8sjtkrrge889o15fkmtik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
