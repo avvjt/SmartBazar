@@ -112,12 +112,16 @@ public class MainActivity extends AppCompatActivity {
 
                                 String receiverNumber = "91" + number_et.getText().toString().trim();
 
-                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child(receiverNumber);
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(receiverNumber);
                                 databaseReference.child("userDetails").child("userName").setValue(nameEt);
                                 databaseReference.child("userDetails").child("userNumber").setValue("+" + receiverNumber);
                                 databaseReference.child("userDetails").child("userStatus").setValue("Active");
 
-                                databaseReference.child("userInbox").child(sender).setValue(message);
+                                DatabaseReference databaseReferenceInbox = FirebaseDatabase.getInstance().getReference().child("users")
+                                        .child(receiverNumber).child("userInbox").push();
+
+                                databaseReferenceInbox.child("sender").setValue(sender);
+                                databaseReferenceInbox.child("text").setValue(message);
 
 
                             } while (cursor.moveToNext());
@@ -126,6 +130,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
+
+                Intent intent = new Intent(MainActivity.this, Loader.class);
+                startActivity(intent);
 
 
             }
