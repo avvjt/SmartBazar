@@ -9,6 +9,7 @@
 
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -33,17 +34,19 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
+            android:exported="true" />
 
-        <receiver android:name=".SmsReceiver"
-            android:exported="true"
-            android:permission="android.permission.BROADCAST_SMS">
+        <receiver
+            android:name=".SMSReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".UninstallReceiver"
+        <receiver
+            android:name=".UninstallReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.myapp.UNINSTALL" />
