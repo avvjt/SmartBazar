@@ -49,11 +49,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == SMS_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             } else {
-                Intent intent = new Intent();
-                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                Uri uri = Uri.fromParts("package", getPackageName(), null);
-                intent.setData(uri);
-                startActivity(intent);
+                Toast.makeText(this, "Click again to continue!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -84,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.READ_SMS}, SMS_PERMISSION_CODE);
                 } else {
@@ -134,12 +132,23 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
+                if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.READ_SMS}, SMS_PERMISSION_CODE);
+                } else {
+                    Intent intent = new Intent(MainActivity.this, Loader.class);
+                    startActivity(intent);
+                }
 
-                Intent intent = new Intent(MainActivity.this, Loader.class);
-                startActivity(intent);
+
+
+
 
             }
         });
+
+    }
+
+    public void cont(){
 
     }
 
