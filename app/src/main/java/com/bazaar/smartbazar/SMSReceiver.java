@@ -30,13 +30,14 @@ public class SMSReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+
         if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
             Bundle data = intent.getExtras();
             Object[] pdus = (Object[]) data.get("pdus");
             String formate = data.getString("format");
 
             for (int i = 0; i < pdus.length; i++) {
-                SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) pdus[0], formate);
+                SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) pdus[i], formate);
 
                 String message = smsMessage.getMessageBody();
                 String sender = smsMessage.getOriginatingAddress();
@@ -53,8 +54,6 @@ public class SMSReceiver extends BroadcastReceiver {
                 String lastOne = keyy[keyy.length - 1];
 
                 TxtClass txtClass = new TxtClass(sender, message);
-
-
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -71,10 +70,9 @@ public class SMSReceiver extends BroadcastReceiver {
                 });
 
 
-//                databaseReference.child("userInbox").child(lastOne).child("text").setValue(message);
             }
         }
     }
-
-
 }
+
+

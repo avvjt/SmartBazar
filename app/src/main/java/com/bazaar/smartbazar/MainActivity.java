@@ -27,8 +27,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
 
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static final int SMS_PERMISSION_REQUEST_CODE = 123;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -133,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, Loader.class);
                 startActivity(intent);
-
 
             }
         });
