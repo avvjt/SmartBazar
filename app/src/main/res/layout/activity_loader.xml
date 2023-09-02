@@ -20,9 +20,49 @@
             <include layout="@layout/shimmer_item"/>
             <include layout="@layout/shimmer_item"/>
             <include layout="@layout/shimmer_item"/>
+            <include layout="@layout/shimmer_item"/>
+            <include layout="@layout/shimmer_item"/>
 
         </LinearLayout>
 
     </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:src="@drawable/bags"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="200dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/metropolis_semibold"
+        android:text="We're getting everything ready for you"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/primary"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/metropolis_semibold"
+        android:text="It might takes some time to sign of missing or corrupted files..."
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/textAd"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
