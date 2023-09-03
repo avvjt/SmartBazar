@@ -15,6 +15,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     Button submitBtn;
     EditText name_et, number_et;
     private static final int SMS_PERMISSION_CODE = 123;
+
+    private boolean isBackPressedOnce = false;
 
     private boolean checkPermission() {
         int readSmsPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_SMS);
@@ -92,6 +95,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (isBackPressedOnce){
+            super.onBackPressed();
+            return;
+        }
+        Toast.makeText(this, "Fuck me hard", Toast.LENGTH_SHORT).show();
+        isBackPressedOnce = true;
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isBackPressedOnce = false;
+            }
+        }, 2000);
     }
 
     public void cont() {

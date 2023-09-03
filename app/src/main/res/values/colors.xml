@@ -2,6 +2,7 @@
 <resources>
 <color name="primary">#DB3022</color>
 <color name="background">#F9F9F9</color>
+<color name="splash_background">#FFFFFF</color>
 <color name="backgroundAd">#FFFFFFFF</color>
 <color name="error">#F01F0E</color>
 <color name="success">#2AA952</color>
