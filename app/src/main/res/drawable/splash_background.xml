@@ -5,7 +5,7 @@
         android:drawable="@color/background"/>
     <item>
         <bitmap android:gravity="center"
-            android:src="@drawable/bags"/>
+            android:src="@drawable/ic_launcher_small"/>
     </item>
 
 </layer-list>
